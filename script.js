@@ -1,5 +1,4 @@
-const questions = [
-    {
+const questions = [{
         question: "Столица Нигерии?",
         optionA: "Лагос",
         optionB: "Ибадан",
@@ -18,20 +17,20 @@ const questions = [
     },
 
     {
-        question: "Who was the first President of USA ?",
-        optionA: "Donald Trump",
-        optionB: "Barack Obama",
-        optionC: "Abraham Lincoln",
-        optionD: "George Washington",
+        question: "Ближайшая звезда к Солнечной системе?",
+        optionA: "Альфа Центавра А",
+        optionB: "Алтаир",
+        optionC: "Сириус",
+        optionD: "Проксима Центавра",
         correctOption: "optionD"
     },
 
     {
-        question: "30 days has ______ ?",
-        optionA: "January",
-        optionB: "December",
-        optionC: "June",
-        optionD: "August",
+        question: "Что не относится к щелочным металлам?",
+        optionA: "Натрий",
+        optionB: "Цезий",
+        optionC: "Родий",
+        optionD: "Литий",
         correctOption: "optionC"
     },
 
@@ -87,150 +86,13 @@ const questions = [
         optionC: "Chris Brown",
         optionD: "John Cena",
         correctOption: "optionD"
-    },
-
-    {
-        question: "Where is the world tallest building located ?",
-        optionA: "Africa",
-        optionB: "California",
-        optionC: "Dubai",
-        optionD: "Italy",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "The longest river in the United Kingdom is ?",
-        optionA: "River Severn",
-        optionB: "River Mersey",
-        optionC: "River Trent",
-        optionD: "River Tweed",
-        correctOption: "optionA"
-    },
-
-
-    {
-        question: "How many permanent teeth does a dog have ?",
-        optionA: "38",
-        optionB: "42",
-        optionC: "40",
-        optionD: "36",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "Which national team won the football World cup in 2018 ?",
-        optionA: "England",
-        optionB: "Brazil",
-        optionC: "Germany",
-        optionD: "France",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "Which US state was Donald Trump Born ?",
-        optionA: "New York",
-        optionB: "California",
-        optionC: "New Jersey",
-        optionD: "Los Angeles",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "How man states does Nigeria have ?",
-        optionA: "24",
-        optionB: "30",
-        optionC: "36",
-        optionD: "37",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "____ is the capital of Nigeria ?",
-        optionA: "Abuja",
-        optionB: "Lagos",
-        optionC: "Calabar",
-        optionD: "Kano",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "Los Angeles is also known as ?",
-        optionA: "Angels City",
-        optionB: "Shining city",
-        optionC: "City of Angels",
-        optionD: "Lost Angels",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "What is the capital of Germany ?",
-        optionA: "Georgia",
-        optionB: "Missouri",
-        optionC: "Oklahoma",
-        optionD: "Berlin",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "How many sides does an hexagon have ?",
-        optionA: "Six",
-        optionB: "Sevene",
-        optionC: "Four",
-        optionD: "Five",
-        correctOption: "optionA"
-    },
-
-    {
-        question: "How many planets are currently in the solar system ?",
-        optionA: "Eleven",
-        optionB: "Seven",
-        optionC: "Nine",
-        optionD: "Eight",
-        correctOption: "optionD"
-    },
-
-    {
-        question: "Which Planet is the hottest ?",
-        optionA: "Jupitar",
-        optionB: "Mercury",
-        optionC: "Earth",
-        optionD: "Venus",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "where is the smallest bone in human body located?",
-        optionA: "Toes",
-        optionB: "Ears",
-        optionC: "Fingers",
-        optionD: "Nose",
-        correctOption: "optionB"
-    },
-
-    {
-        question: "How many hearts does an Octopus have ?",
-        optionA: "One",
-        optionB: "Two",
-        optionC: "Three",
-        optionD: "Four",
-        correctOption: "optionC"
-    },
-
-    {
-        question: "How many teeth does an adult human have ?",
-        optionA: "28",
-        optionB: "30",
-        optionC: "32",
-        optionD: "36",
-        correctOption: "optionC"
     }
-
 ]
 
 
 let shuffledQuestions = [] //empty array to hold shuffled selected questions
 
-function handleQuestions() { 
+function handleQuestions() {
     //function to shuffle and push 10 questions to shuffledQuestions array
     while (shuffledQuestions.length <= 9) {
         const random = questions[Math.floor(Math.random() * questions.length)]
@@ -240,10 +102,9 @@ function handleQuestions() {
     }
 }
 
-
 let questionNumber = 1
-let playerScore = 0  
-let wrongAttempt = 0 
+let playerScore = 0
+let wrongAttempt = 0
 let indexNumber = 0
 
 // function for displaying next question in the array to dom
@@ -257,15 +118,13 @@ function NextQuestion(index) {
     document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
     document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
     document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
-
 }
 
-
 function checkForAnswer() {
-    const currentQuestion = shuffledQuestions[indexNumber] //gets current Question 
-    const currentQuestionAnswer = currentQuestion.correctOption //gets current Question's answer
+    const currentQuestion = shuffledQuestions[indexNumber]; //gets current Question 
+    const currentQuestionAnswer = currentQuestion.correctOption; //gets current Question's answer
     const options = document.getElementsByName("option"); //gets all elements in dom with name of 'option' (in this the radio inputs)
-    let correctOption = null
+    let correctOption = null;
 
     options.forEach((option) => {
         if (option.value === currentQuestionAnswer) {
@@ -273,7 +132,7 @@ function checkForAnswer() {
             correctOption = option.labels[0].id
         }
     })
-   
+
     //checking to make sure a radio input has been checked or an option being chosen
     if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
         document.getElementById('option-modal').style.display = "flex"
@@ -289,9 +148,7 @@ function checkForAnswer() {
             setTimeout(() => {
                 questionNumber++
             }, 1000)
-        }
-
-        else if (option.checked && option.value !== currentQuestionAnswer) {
+        } else if (option.checked && option.value !== currentQuestionAnswer) {
             const wrongLabelId = option.labels[0].id
             //document.getElementsByClassName('game-quiz-container').style.backgroundColor = "red";
             document.getElementById(wrongLabelId).style.backgroundColor = "red"
@@ -316,8 +173,7 @@ function handleNextQuestion() {
     setTimeout(() => {
         if (indexNumber <= 9) {
             NextQuestion(indexNumber)
-        }
-        else {
+        } else {
             handleEndGame()
         }
         resetOptionBackground()
@@ -349,12 +205,10 @@ function handleEndGame() {
     if (playerScore <= 3) {
         remark = "Bad Grades, Keep Practicing."
         remarkColor = "red"
-    }
-    else if (playerScore >= 4 && playerScore < 7) {
+    } else if (playerScore >= 4 && playerScore < 7) {
         remark = "Average Grades, You can do better."
         remarkColor = "orange"
-    }
-    else if (playerScore >= 7) {
+    } else if (playerScore >= 7) {
         remark = "Excellent, Keep the good work going."
         remarkColor = "green"
     }
@@ -428,7 +282,7 @@ function closeOptionModal() {
 //       correct: 'b',
 //     },
 //   ];
-  
+
 //   const quiz = document.getElementById('quiz'),
 //     answerEls = document.querySelectorAll('.answer'),
 //     questionEl = document.getElementById('question'),
@@ -437,17 +291,17 @@ function closeOptionModal() {
 //     c_text = document.getElementById('c_text'),
 //     d_text = document.getElementById('d_text'),
 //     submitBtn = document.getElementById('submit');
-  
+
 //   let currentQuiz = 0,
 //     score = 0;
-  
+
 //   loadQuiz();
-  
+
 //   function loadQuiz() {
 //     deselectAnswers();
-  
+
 //     const currentQuizData = quizData[currentQuiz];
-  
+
 //     questionEl.innerText = currentQuizData.question;
 //     a_text.innerText = currentQuizData.a;
 //     b_text.innerText = currentQuizData.b;
@@ -459,37 +313,36 @@ function closeOptionModal() {
 //   function deselectAnswers() {
 //     answerEls.forEach((answerEl) => (answerEl.checked = false));
 //   }
-  
+
 //   function getSelected() {
 //     let answer;
-  
+
 //     answerEls.forEach((answerEl) => {
 //       if (answerEl.checked) {
 //         answer = answerEl.id;
 //       }
 //     });
-  
+
 //     return answer;
 //   }
-  
+
 //   submitBtn.addEventListener('click', () => {
 //     const answer = getSelected();
 //     if (answer) {
 //       if (answer === quizData[currentQuiz].correct) {
 //         score++;
 //       }
-  
+
 //       currentQuiz++;
-  
+
 //       if (currentQuiz < quizData.length) {
 //         loadQuiz();
 //       } else {
 //         quiz.innerHTML = `
 //           <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-  
+
 //           <button onclick="location.reload()">Reload</button>
 //         `;
 //       }
 //     }
 //   });
-  

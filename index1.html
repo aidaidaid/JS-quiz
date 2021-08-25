@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main1.css" />
+  </head>
+  <body>
+    <div class="quiz-wrap">
+      <ul class="fit-quiz">
+        <li class="question" id="question-1">
+          <div class="question-wrap">
+            <h3>Question #1</h3>
+            <p>Which of these virtues best describes you?</p>
+            <div class="answers">
+              <button data-quiz-value="a">Logical</button>
+              <button data-quiz-value="b">Curious</button>
+              <button data-quiz-value="c">Creative</button>
+              <button data-quiz-value="d">Empathetic</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="question inactive" id="question-2">
+          <div class="question-wrap">
+            <h3>Question #2</h3>
+            <p>
+              You’re presented with a brand-new task at work. The first thing
+              you do is:
+            </p>
+            <div class="answers">
+              <button data-quiz-value="a">
+                Begin by examining what data is already available to study
+              </button>
+              <button data-quiz-value="b">
+                Start exploring all the different ways you can tackle the task
+                and the associated outcomes
+              </button>
+              <button data-quiz-value="e">
+                Look at the scope and see where you can make improvements
+              </button>
+              <button data-quiz-value="f">
+                Make sure you’ve been fully briefed as to what’s expected
+              </button>
+            </div>
+          </div>
+        </li>
+
+        <li class="question inactive">
+          <div class="question-wrap">
+            <h3>Question #3</h3>
+            <p>As far as socializing at work goes, you like to:</p>
+            <div class="answers">
+              <button data-quiz-value="e">
+                Connect with all departments and lead the conversation
+              </button>
+              <button data-quiz-value="d">
+                Quickly get involved in the social life of a new workplace
+              </button>
+              <button data-quiz-value="c">
+                Talk freely and encourage creative ways to brainstorm
+              </button>
+              <button data-quiz-value="f">
+                Blend in with your surroundings
+              </button>
+            </div>
+          </div>
+        </li>
+
+        <li class="question inactive">
+          <div class="question-wrap">
+            <h3>Question #4</h3>
+            <p>Presentation time! You’d be the one who:</p>
+            <div class="answers">
+              <button data-quiz-value="a">
+                Presents the subject matter in practical terms, with supportive
+                data
+              </button>
+              <button data-quiz-value="b">
+                Presents the subject matter by digging deep into the data with
+                ideas for improvement
+              </button>
+              <button data-quiz-value="c">
+                Presents in a creative way, almost like a story, that leads to a
+                solution
+              </button>
+              <button data-quiz-value="d">
+                Presents with the aim of the company eventually helping out
+                society
+              </button>
+            </div>
+          </div>
+        </li>
+
+        <li class="question inactive">
+          <div class="question-wrap">
+            <h3>Question #5</h3>
+            <p>How would you want a manager to describe you?</p>
+            <div class="answers">
+              <button data-quiz-value="a">Practical and independent</button>
+              <button data-quiz-value="b">Curious and analytical</button>
+              <button data-quiz-value="e">Confident and self-assured</button>
+              <button data-quiz-value="f">Efficient and detail-oriented</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="question inactive">
+          <div class="question-wrap">
+            <h3>Question #6</h3>
+            <p>What would make you most proud of your work?</p>
+            <div class="answers">
+              <button data-quiz-value="e">
+                Challenging the status quo and encouraging coworkers to face a
+                challenge head on
+              </button>
+              <button data-quiz-value="d">
+                Being part of an organization that gives back to its community
+              </button>
+              <button data-quiz-value="c">
+                Being told an idea you brought to the table is unique and
+                creative
+              </button>
+              <button data-quiz-value="f">
+                Fighting for your work because of your attention to detail and
+                diligence
+              </button>
+            </div>
+          </div>
+        </li>
+
+        <li class="question inactive">
+          <div class="question-wrap">
+            <h3>Question #7</h3>
+            <p>
+              Which of these options best describes your overall working style?
+            </p>
+            <div class="answers">
+              <button data-quiz-value="e">
+                Leadership: willingness to lead, take charge, and offer opinions
+                and direction
+              </button>
+              <button data-quiz-value="d">
+                Dependability: reliable, responsible, and dependable
+              </button>
+              <button data-quiz-value="c">
+                Innovation: using creativity and alternative thinking to develop
+                new ideas
+              </button>
+              <button data-quiz-value="f">
+                Detail-oriented: careful about detail and thorough in completing
+                work tasks
+              </button>
+            </div>
+          </div>
+        </li>
+
+        <li class="question inactive">
+          <div class="question-wrap">
+            <h3>Question #8</h3>
+            <p>Which of these options best describes your ideal work?</p>
+            <div class="answers">
+              <button data-quiz-value="a">
+                Activities that require skill and coordination
+              </button>
+              <button data-quiz-value="b">
+                Working with theory and information
+              </button>
+              <button data-quiz-value="c">
+                Working with unsystematic activities that allow creative
+                expression
+              </button>
+              <button data-quiz-value="d">
+                Activities that involve helping or developing others
+              </button>
+            </div>
+          </div>
+        </li>
+
+        <li class="inactive question">
+          <button class="js-quiz-submit button-link">
+            <span>Submit</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!--Results-->
+
+    <div class="results">
+      <ul>
+        <!--Realistic Result-->
+        <li class="realistic results-category">
+          <div class="results-heading">
+            <div>
+              <h3>We've picked out a good fit for you!</h3>
+              <span>You are:</span>
+
+              <div class="results-heading-text">
+                <div class="center">
+                  <i class="category-icon icon-graph"></i>
+                  <h4>Realistic</h4>
+                  <p>
+                    You value distinct information and prefer to work with
+                    ideas, findings, and data. Independent in nature, you thrive
+                    best in practical settings in which you can tangibly see and
+                    measure your progress and growth.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--End results heading-->
+
+          <!--investigative Result-->
+        </li>
+
+        <li class="investigative results-category">
+          <div class="results-heading">
+            <div>
+              <h3>We've picked out a good fit for you!</h3>
+              <span>You are:</span>
+
+              <div class="results-heading-text">
+                <div class="center">
+                  <i class="category-icon icon-magnifying-glass"></i>
+                  <h4>Investigative</h4>
+                  <p>
+                    You value numbers and theories and tend to apply an
+                    analytical outlook to everything you do, professionally and
+                    personally. Your curiosity is piqued through research and
+                    doing experiments to consider how something works and how to
+                    improve established processes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--End results heading-->
+        </li>
+
+        <!--Artistic Result-->
+
+        <li class="artistic results-category">
+          <div class="results-heading">
+            <div>
+              <h3>We've picked out a good fit for you!</h3>
+              <span>You are:</span>
+
+              <div class="results-heading-text">
+                <div class="center">
+                  <i class="category-icon icon-bulb"></i>
+                  <h4>Artistic</h4>
+                  <p>
+                    You value self-expression and tend to be a free spirit who
+                    steers clear of everyday mundane tasks. You prefer constant
+                    challenges to use your imagination, as your goal is to
+                    create originality, putting your creative and intuitive
+                    nature to good use.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--End results heading-->
+        </li>
+
+        <!--Conventional Result-->
+
+        <li class="conventional results-category">
+          <div class="results-heading">
+            <div>
+              <h3>We've picked out a good fit for you!</h3>
+              <span>You are:</span>
+
+              <div class="results-heading-text">
+                <div class="center">
+                  <i class="category-icon icon-justice"></i>
+                  <h4>Conventional</h4>
+                  <p>
+                    You are methodical and like clear guidelines and structure.
+                    While ambitious, you prefer not to be the center of
+                    attention, choosing instead to focus on work, as you are
+                    very detail oriented. This also makes you persistent,
+                    especially while arguing your case when you know you’re in
+                    the right.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--End results heading-->
+        </li>
+
+        <!--Enterprising Result-->
+
+        <li class="enterprising results-category">
+          <div class="results-heading">
+            <div>
+              <h3>We've picked out a good fit for you!</h3>
+              <span>You are:</span>
+
+              <div class="results-heading-text">
+                <div class="center">
+                  <i class="category-icon icon-bullseye"></i>
+                  <h4>Enterprising</h4>
+                  <p>
+                    You face challenges head-on. You are a natural leader who
+                    values the art of persuasion, often encouraging others to
+                    see things your way. You feel comfortable challenging the
+                    status quo and pushing for improvements through innovation.
+                    While assertive, you are friendly, optimistic, and sociable.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--End results heading-->
+        </li>
+
+        <!--Social Result-->
+
+        <li class="social results-category">
+          <div class="results-heading">
+            <div>
+              <h3>We've picked out a good fit for you!</h3>
+              <span>You are:</span>
+
+              <div class="results-heading-text">
+                <div class="center">
+                  <i class="category-icon icon-social"></i>
+                  <h4>Social</h4>
+                  <p>
+                    You are idealistic in nature, and your personal values guide
+                    your decision making. You feel fulfilled by helping other
+                    people and your perceptiveness enables you to see the bigger
+                    picture and create a positive impact on the world around
+                    you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--End results heading-->
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
