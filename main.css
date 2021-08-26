@@ -1,31 +1,7 @@
-/* body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* height: 100vh;
-    overflow: hidden; 
-    margin: 0;
-}
-
-.quiz-card {
-    background-color:pink;
-    padding: 25px;
-    border-radius: 25px;
-    height: ;
-} */
-
-* {
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-body {
     font-family: 'Montserrat', serif;
 }
 
@@ -72,7 +48,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid darkgray;
+    border: 2px solid hsl(195, 100%, 66%);
     border-radius: 25px;
 }
 
@@ -92,10 +68,7 @@ main {
 }
 
 .game-options-container span {
-    /* width: 45%; */
     height: 3rem;
-
-
 }
 
 span label {
@@ -107,24 +80,27 @@ span label {
     cursor: pointer;
     transition: transform 0.3s;
     font-weight: 600;
-    color: rgb(22, 22, 22);
+    color: #001f3f;
 }
 
 span label:hover {
-    -ms-transform: scale(1.12);
+    /* -ms-transform: scale(1.12);
     -webkit-transform: scale(1.12);
-    transform: scale(1.12);
-    color: white;
-    border: 2px solid darkgray;
+    transform: scale(1.12); */
+    color: #85144b;
+    border: 2px solid hsl(195, 100%, 66%);
     border-radius: 20px;
     overflow: hidden;
 }
+
+/* .after-click {
+    pointer-events: none;
+} */
 
 input[type="radio"] {
     position: relative;
     display: none;
 }
-
 
 input[type=radio]:checked~.option {
     background: paleturquoise;
@@ -163,12 +139,9 @@ input[type=radio]:checked~.option {
     height: 100%;
     overflow: auto;
     background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    -webkit-animation: fadeIn 1.2s ease-in-out;
-    animation: fadeIn 1.2s ease-in-out;
 }
 
 .modal-content-container {
@@ -216,7 +189,7 @@ input[type=radio]:checked~.option {
     height: 2rem;
     background: none;
     outline: none;
-    border: 1px solid rgb(252, 242, 241);
+    border: 1px solid rgb(68, 196, 255);
     color: white;
     font-size: 1.1rem;
     cursor: pointer;
