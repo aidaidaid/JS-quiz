@@ -7,29 +7,25 @@
     <title>Quiz Game</title>
     <link rel="stylesheet" href="main.css">
 </head>
-    <body onload="NextQuestion(0)">
+    <body onload="nextQuestion(0)">
         <main>
             <div class="modal-container" id="score-modal">             
                 <div class="modal-content-container">                             
                     <div class="grade-details">
-                        <p>Wrong Answers : <span id="wrong-answers"></span></p>
-                        <p>Right Answers : <span id="right-answers"></span></p>
+                        <p>Верных ответов: <span id="right-answers"></span></p>
+                        <p>Неверных ответов: <span id="wrong-answers"></span></p>
                     </div>               
                     <div class="modal-button-container">
-                        <button onclick="closeScoreModal()">RESTART</button>
+                        <button onclick="closeScore()">ПРОЙТИ ЗАНОВО</button>
                     </div>               
                 </div>
             </div>  
             <div id="card" class="game-quiz-container">            
-                <div class="game-details-container">
-                    <h1>Score : <span id="player-score"></span> / 10</h1>
-                    <h1> Question : <span id="question-number"></span> / 10</h1>
-                </div>  
                 <div class="game-question-container">
                     <h1 id="display-question"></h1>
                 </div>  
                 <div class="game-options-container">                
-                    <span class="after-click">
+                    <span>
                         <input onclick="checkForAnswer()" type="radio" id="option-one" name="option" class="radio after-click" value="optionA" />
                         <label for="option-one" class="option" id="option-one-label"></label>
                     </span>  
@@ -47,7 +43,7 @@
                     </span>   
                 </div>  
                 <div class="next-button-container">
-                    <button onclick="handleNextQuestion()">Следующий</button>
+                    <button onclick="handleNextQuestion()">СЛЕДУЮЩИЙ</button>
                 </div>  
             </div>
         </main>

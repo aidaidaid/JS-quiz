@@ -28,6 +28,7 @@ main {
     align-items: center;
     justify-content: space-around;
     border-radius: 30px;
+    padding-top: 25px;
 }
 
 .game-details-container {
@@ -62,13 +63,18 @@ main {
     width: 80%;
     height: 12rem;
     display: flex;
-    flex-direction: column;
-
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-around;
 }
 
 .game-options-container span {
+        width: 45%;
     height: 3rem;
+        border: 2px solid hsl(195, 100%, 66%);
+    /* border: 2px solid darkgray; */
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 span label {
@@ -81,16 +87,15 @@ span label {
     transition: transform 0.3s;
     font-weight: 600;
     color: #001f3f;
+    /* border: 2px solid hsl(195, 100%, 66%); */
 }
 
 span label:hover {
-    /* -ms-transform: scale(1.12);
-    -webkit-transform: scale(1.12);
-    transform: scale(1.12); */
+    transform: scale(1.12);
     color: #85144b;
-    border: 2px solid hsl(195, 100%, 66%);
+    /* border: 2px solid hsl(195, 100%, 66%);
     border-radius: 20px;
-    overflow: hidden;
+    overflow: hidden; */
 }
 
 /* .after-click {
@@ -138,7 +143,7 @@ input[type=radio]:checked~.option {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(0,0,0,0.4); 
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -155,25 +160,19 @@ input[type=radio]:checked~.option {
     border-radius: 25px;
 }
 
-.modal-content-container h1 {
-    font-size: 1.3rem;
-    height: 3rem;
-    color: lightgray;
-    text-align: center;
-}
-
 .grade-details {
     width: 15rem;
     height: 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .grade-details p {
     color: white;
     text-align: center;
+    font-size: 24px;
 }
 
 .modal-button-container {
@@ -191,7 +190,7 @@ input[type=radio]:checked~.option {
     outline: none;
     border: 1px solid rgb(68, 196, 255);
     color: white;
-    font-size: 1.1rem;
+    font-size: 12px;
     cursor: pointer;
     border-radius: 20px;
 }

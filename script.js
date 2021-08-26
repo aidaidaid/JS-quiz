@@ -89,30 +89,24 @@ const questions = [{
     }
 ]
 
-let shuffledQuestions = [];
+let arr = [];
 
 function handleQuestions() {
-    while (shuffledQuestions.length <= 9) {
+    while (arr.length <= 9) {
         const random = questions[Math.floor(Math.random() * questions.length)];
-        if (!shuffledQuestions.includes(random)) {
-            shuffledQuestions.push(random);
+        if (!arr.includes(random)) {
+            arr.push(random);
         }
     }
 }
 
-let questionNumber = 1
+let questionNum = 1
 let playerScore = 0
-let wrongAttempt = 0
-let indexNumber = 0
+let index = 0
 
-//document.getElementsByTagName('span').remo toggleClass('after-click');
-
-
-function NextQuestion(index) {
+function nextQuestion(index) {
     handleQuestions()
-    const currentQuestion = shuffledQuestions[index]
-    document.getElementById("question-number").innerHTML = questionNumber
-    document.getElementById("player-score").innerHTML = playerScore
+    const currentQuestion = arr[index];
     document.getElementById("display-question").innerHTML = currentQuestion.question;
     document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
     document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
@@ -121,7 +115,7 @@ function NextQuestion(index) {
 }
 
 function checkForAnswer() {
-    const currentQuestion = shuffledQuestions[indexNumber];
+    const currentQuestion = arr[index];
     const currentQuestionAnswer = currentQuestion.correctOption;
     const options = document.getElementsByName("option");
     let correctOption = null;
@@ -132,42 +126,32 @@ function checkForAnswer() {
         }
     })
 
-    //checking to make sure a radio input has been checked or an option being chosen
-    // if (options[0].checked === false && options[1].checked === false && options[2].checked === false && options[3].checked == false) {
-    //     document.getElementById('option-modal').style.display = "flex"
-    // }
-
     options.forEach((option) => {
         if (option.checked === true && option.value === currentQuestionAnswer) {
-            //document.getElementById(correctOption).style.backgroundColor = "green"
-            document.getElementById('card').style.backgroundColor = "green"
+            document.getElementById(correctOption).style.backgroundColor = "green"
+            //document.getElementById('card').style.backgroundColor = "green"
             playerScore++
-            indexNumber++
-            setTimeout(() => {
-                questionNumber++
-            }, 1000)
+            index++
+            questionNum++
         } else if (option.checked && option.value !== currentQuestionAnswer) {
             const wrongLabelId = option.labels[0].id
             document.getElementById(wrongLabelId).style.backgroundColor = "red"
             document.getElementById(correctOption).style.backgroundColor = "green"
-            wrongAttempt++
-            indexNumber++
-            //set to delay question number till when next question loads
-            setTimeout(() => {
-                questionNumber++
-            }, 1000)
+            index++
+            questionNum++
         }
     })
-
-        // document.getElementsByTagName('span').removeClass('after-click');
-        document.getElementsByClassName('game-options-container').disabled = true;
-        document.getElementsByClassName('game-options-container').prop("readonly", true)
+    $(':radio:not(:checked)').attr('disabled', true);
+        //document.getElementsByTagName("span").style.pointerEvents = "none";
+        //document.getElementsByTagName('label').classList.add('after-click');
+        // document.getElementsByClassName('game-options-container').disabled = true;
+        // document.getElementsByClassName('game-options-container').prop("readonly", true)
 }
 
 function handleNextQuestion() {
     //checkForAnswer()
     unCheckRadioButtons();
-    (indexNumber <= 9) ? NextQuestion(indexNumber) : handleEndGame();
+    (index <= 9) ? nextQuestion(index) : endGame();
     resetOptionBackground();
 }
 
@@ -186,18 +170,17 @@ function unCheckRadioButtons() {
     }
 }
 
-function handleEndGame() {
-    document.getElementById('wrong-answers').innerHTML = wrongAttempt
+function endGame() {
+    document.getElementById('wrong-answers').innerHTML = 10 - playerScore
     document.getElementById('right-answers').innerHTML = playerScore
     document.getElementById('score-modal').style.display = "flex"
 }
 
-function closeScoreModal() {
-    questionNumber = 1
+function closeScore() {
+    questionNum = 1
     playerScore = 0
-    wrongAttempt = 0
-    indexNumber = 0
-    shuffledQuestions = []
-    NextQuestion(indexNumber)
+    index = 0
+    arr = []
+    nextQuestion(index)
     document.getElementById('score-modal').style.display = "none"
 }
