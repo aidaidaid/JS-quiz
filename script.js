@@ -1,4 +1,5 @@
-const questions = [{
+const questions = [
+    {
         question: "Столица Нигерии?",
         optionA: "Лагос",
         optionB: "Ибадан",
@@ -90,6 +91,9 @@ const questions = [{
 ]
 
 let arr = [];
+let questionNum = 1;
+let playerScore = 0;
+let index = 0;
 
 function handleQuestions() {
     while (arr.length <= 9) {
@@ -100,20 +104,6 @@ function handleQuestions() {
     }
 }
 
-let questionNum = 1
-let playerScore = 0
-let index = 0
-
-function nextQuestion(index) {
-    handleQuestions()
-    const currentQuestion = arr[index];
-    document.getElementById("display-question").innerHTML = currentQuestion.question;
-    document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
-    document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
-    document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
-    document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
-}
-
 function checkForAnswer() {
     const currentQuestion = arr[index];
     const currentQuestionAnswer = currentQuestion.correctOption;
@@ -122,35 +112,49 @@ function checkForAnswer() {
 
     options.forEach((option) => {
         if (option.value === currentQuestionAnswer) {
-            correctOption = option.labels[0].id
+            correctOption = option.labels[0].id;
         }
     })
 
     options.forEach((option) => {
         if (option.checked === true && option.value === currentQuestionAnswer) {
-            document.getElementById(correctOption).style.backgroundColor = "green"
-            //document.getElementById('card').style.backgroundColor = "green"
-            playerScore++
-            index++
-            questionNum++
+            document.getElementById(correctOption).style.backgroundColor = "green";
+            playerScore++;
+            index++;
+            questionNum++;
         } else if (option.checked && option.value !== currentQuestionAnswer) {
-            const wrongLabelId = option.labels[0].id
-            document.getElementById(wrongLabelId).style.backgroundColor = "red"
-            document.getElementById(correctOption).style.backgroundColor = "green"
-            index++
-            questionNum++
+            const wrongLabelId = option.labels[0].id;
+            document.getElementById(wrongLabelId).style.backgroundColor = "red";
+            document.getElementById(correctOption).style.backgroundColor = "green";
+            index++;
+            questionNum++;
         }
     })
-    $(':radio:not(:checked)').attr('disabled', true);
-        //document.getElementsByTagName("span").style.pointerEvents = "none";
-        //document.getElementsByTagName('label').classList.add('after-click');
-        // document.getElementsByClassName('game-options-container').disabled = true;
-        // document.getElementsByClassName('game-options-container').prop("readonly", true)
+    const label = document.getElementsByTagName('label');
+    for (let i = 0; i < label.length; i++) {
+        label[i].style.pointerEvents = "none";
+    }
+}
+
+function nextQuestion(index) {
+    handleQuestions();
+    const currentQuestion = arr[index];
+    document.getElementById("question-text").innerHTML = currentQuestion.question;
+    document.getElementById("option-one-label").innerHTML = currentQuestion.optionA;
+    document.getElementById("option-two-label").innerHTML = currentQuestion.optionB;
+    document.getElementById("option-three-label").innerHTML = currentQuestion.optionC;
+    document.getElementById("option-four-label").innerHTML = currentQuestion.optionD;
 }
 
 function handleNextQuestion() {
-    //checkForAnswer()
-    unCheckRadioButtons();
+    const options = document.getElementsByName("option");
+    for (let i = 0; i < options.length; i++) {
+        options[i].checked = false;
+    }
+    const label = document.getElementsByTagName('label');
+    for (let i = 0; i < label.length; i++) {
+        label[i].style.pointerEvents = "auto";
+    }
     (index <= 9) ? nextQuestion(index) : endGame();
     resetOptionBackground();
 }
@@ -158,29 +162,22 @@ function handleNextQuestion() {
 function resetOptionBackground() {
     const options = document.getElementsByName("option");
     options.forEach((option) => {
-        document.getElementById('card').style.backgroundColor = "pink"
-        document.getElementById(option.labels[0].id).style.backgroundColor = ""
+        document.getElementById('card').style.backgroundColor = "rgb(255, 200, 200)";
+        document.getElementById(option.labels[0].id).style.backgroundColor = "";
     })
 }
 
-function unCheckRadioButtons() {
-    const options = document.getElementsByName("option");
-    for (let i = 0; i < options.length; i++) {
-        options[i].checked = false;
-    }
-}
-
 function endGame() {
-    document.getElementById('wrong-answers').innerHTML = 10 - playerScore
-    document.getElementById('right-answers').innerHTML = playerScore
-    document.getElementById('score-modal').style.display = "flex"
+    document.getElementById('wrong-answers').innerHTML = 10 - playerScore;
+    document.getElementById('right-answers').innerHTML = playerScore;
+    document.getElementById('score-modal').style.display = "flex";
 }
 
 function closeScore() {
-    questionNum = 1
-    playerScore = 0
-    index = 0
-    arr = []
-    nextQuestion(index)
-    document.getElementById('score-modal').style.display = "none"
+    questionNum = 1;
+    playerScore = 0;
+    index = 0;
+    arr = [];
+    nextQuestion(index);
+    document.getElementById('score-modal').style.display = "none";
 }

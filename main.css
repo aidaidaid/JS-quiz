@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 main {
@@ -19,10 +21,10 @@ main {
     background-position: center;
 }
 
-.game-quiz-container {
+#card {
     width: 40rem;
     height: 30rem;
-    background-color: pink;
+    background-color: rgb(255, 200, 200);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,35 +33,23 @@ main {
     padding-top: 25px;
 }
 
-.game-details-container {
-    width: 80%;
-    height: 4rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.game-details-container h1 {
-    font-size: 1.2rem;
-}
-
-.game-question-container {
+.question {
     width: 80%;
     height: 8rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid hsl(195, 100%, 66%);
     border-radius: 25px;
+    background-color: rgb(237, 167, 255);
 }
 
-.game-question-container h1 {
+h1 {
     font-size: 1.1rem;
     text-align: center;
     padding: 3px;
 }
 
-.game-options-container {
+.game-options {
     width: 80%;
     height: 12rem;
     display: flex;
@@ -68,11 +58,10 @@ main {
     justify-content: space-around;
 }
 
-.game-options-container span {
-        width: 45%;
+.game-options span {
+    width: 45%;
     height: 3rem;
-        border: 2px solid hsl(195, 100%, 66%);
-    /* border: 2px solid darkgray; */
+    border: 2px solid rgb(237, 167, 255);;
     border-radius: 20px;
     overflow: hidden;
 }
@@ -87,20 +76,12 @@ span label {
     transition: transform 0.3s;
     font-weight: 600;
     color: #001f3f;
-    /* border: 2px solid hsl(195, 100%, 66%); */
 }
 
 span label:hover {
     transform: scale(1.12);
-    color: #85144b;
-    /* border: 2px solid hsl(195, 100%, 66%);
-    border-radius: 20px;
-    overflow: hidden; */
+    color: rgb(90, 0, 112);
 }
-
-/* .after-click {
-    pointer-events: none;
-} */
 
 input[type="radio"] {
     position: relative;
@@ -111,30 +92,30 @@ input[type=radio]:checked~.option {
     background: paleturquoise;
 }
 
-.next-button-container {
+.next-button {
     width: 50%;
     height: 3rem;
     display: flex;
     justify-content: center;
 }
 
-.next-button-container button {
+.next-button button {
     width: 8rem;
     height: 2rem;
     border-radius: 10px;
     background: none;
     color: rgb(25, 25, 25);
     font-weight: 600;
-    border: 2px solid gray;
+    border: 2px solid rgb(237, 167, 255);;
     cursor: pointer;
     outline: none;
 }
 
-.next-button-container button:hover {
-    background-color: rgb(143, 93, 93);
+.next-button button:hover {
+    background-color: rgb(237, 167, 255);;
 }
 
-.modal-container {
+#score-modal{
     display: none;
     position: fixed;
     z-index: 1;
@@ -149,9 +130,9 @@ input[type=radio]:checked~.option {
     justify-content: center;
 }
 
-.modal-content-container {
-    height: 20rem;
-    width: 25rem;
+.modal-content {
+    height: 400px;
+    width: 500px;
     background-color: rgb(43, 42, 42);
     display: flex;
     flex-direction: column;
@@ -175,7 +156,7 @@ input[type=radio]:checked~.option {
     font-size: 24px;
 }
 
-.modal-button-container {
+.restart-button {
     height: 2rem;
     width: 100%;
     display: flex;
@@ -183,7 +164,7 @@ input[type=radio]:checked~.option {
     justify-content: center;
 }
 
-.modal-button-container button {
+.restart-button button {
     width: 10rem;
     height: 2rem;
     background: none;
@@ -195,97 +176,59 @@ input[type=radio]:checked~.option {
     border-radius: 20px;
 }
 
-.modal-button-container button:hover {
+.restart-button button:hover {
     background-color: rgb(83, 82, 82);
 }
 
 @media(min-width : 300px) and (max-width : 350px) {
-    .game-quiz-container {
+    #card {
         width: 90%;
         height: 80vh;
     }
 
-    .game-details-container h1 {
-        font-size: 0.8rem;
-    }
-
-    .game-question-container {
+    .question {
         height: 6rem;
     }
 
-    .game-question-container h1 {
+    h1 {
         font-size: 0.9rem;
     }
 
-    .game-options-container span {
+    span {
         width: 90%;
         height: 2.5rem;
     }
 
-    .game-options-container span label {
+    label {
         font-size: 0.8rem;
     }
 
-    .modal-content-container {
+    .modal-content {
         width: 90%;
         height: 25rem;
-    }
-
-    .modal-content-container h1 {
-        font-size: 1.2rem;
     }
 }
 
 @media(min-width : 350px) and (max-width : 700px) {
-    .game-quiz-container {
+    #card {
         width: 90%;
         height: 80vh;
     }
 
-    .game-details-container h1 {
-        font-size: 1rem;
-    }
-
-    .game-question-container {
+    .question {
         height: 8rem;
     }
 
-    .game-question-container h1 {
+    h1 {
         font-size: 0.9rem;
     }
 
-    .game-options-container span {
+    span {
         width: 90%;
     }
 
-    .modal-content-container {
+    .modal-content {
         width: 90%;
         height: 25rem;
-    }
-
-    .modal-content-container h1 {
-        font-size: 1.2rem;
-    }
-}
-
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@-webkit-keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
     }
 }
